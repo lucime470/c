@@ -3,6 +3,7 @@
 // #include <windows.h> //提供MAX_PATH路径最大长度，但感觉好像不是很必要（○｀ 3′○），其实还是必要的(MAX_PATH确实无所谓)，如果按照原来的方案来写，SHGetFolderPath依赖 Windows特定类型,CSIDL_MYDOCUMENTS等常量定义在<shlobj.h>，但<shlobj.h>本身又依赖Windows基础类型，所以直接换方案，两个头文件全都注释掉（*＾-＾*）
 // #include <shlobj.h>  //提供SHGetFolderPath函数和CSIDL_DESKTOPDIRECTORY常量
 #include <time.h> //用来获取时间戳,时间戳指格林威治时间1970年01月01日00时00分00秒起至现在的总秒数
+//放弃多文件编程了，有点复杂，也不是很必要
 
 void main_menu_print() //定义输出主菜单函数
 {
@@ -299,7 +300,7 @@ int main()
     puts("1.客户");
     puts("2.老板");
     r=scanf("%d",&m);
-    if(m==2)
+    if(m==2) //新增老板的身份，本来想用两个程序来实现的，就相当于是合在一起了
     {
         clear_input(); //一定要记得清除一下缓存区，否则影响接下来的fgets的获取，一定要加！！！( ｀д′)
         char password[100];
@@ -395,3 +396,9 @@ int main()
         return 0;
     }
 }
+//写了喽，可以实现正常点餐
+//这次才是写完了，新增了客户和老板的选项o(*￣︶￣*)o
+//应该会上传到到GitHub上，虽然这种程序一抓一大把，但是第一次写的完整的一个系统，后续blog也会上传吧
+// 可于我的github https://github.com/lucime470/c 查看其他内容
+// blog估计得等很久了https://lucime470.github.io/
+
